@@ -1,0 +1,145 @@
+step,message,value
+load_crsp,raw shape (crsp.msf_v2),"(4891218, 22)"
+load_crsp,months without a market return,0
+clean_crsp_returns,missing stock returns before drop,82116
+clean_crsp_returns,returns below -100%,0
+clean_crsp_industry,missing industry code,19678
+clean_crsp_duplicates,duplicate permno-month rows removed,0
+load_crsp,clean shape,"(4809102, 26)"
+crsp_features,number of return features,13
+crsp_monthly_features,log_mktcap: share available,0.9994142357554487
+crsp_monthly_features,log_price: share available,1.0
+crsp_monthly_features,turnover_1m: share available,0.9356844583458617
+crsp_monthly_features,turnover_12m: share available,0.8477191791731595
+crsp_monthly_features,log_dollar_volume_3m: share available,0.9195176147230814
+crsp_monthly_features,share_issuance_12m: share available,0.8978487043942923
+crsp_monthly_features,dividend_yield_12m: share available,0.9064415768266092
+crsp_monthly_features,price_to_12m_high: share available,0.9064058113136299
+crsp_monthly_features,ret_36_13: share available,0.7280533870980487
+crsp_monthly_features,seasonal_1y: share available,0.9064415768266092
+crsp_monthly_features,seasonal_2_5y: share available,0.7342876071249892
+daily_features,stock-months with a daily summary,0.8689848957248152
+daily_features,vol_d_1m: share available,0.8637585561711937
+daily_features,vol_d_3m: share available,0.8527411146613235
+daily_features,vol_d_ew: share available,0.8637585561711937
+daily_features,vol_d_last5: share available,0.8668412522753728
+daily_features,vol_ratio_1m_12m: share available,0.7803662721231531
+daily_features,ivol_d_1m: share available,0.8637585561711937
+daily_features,ivol_d_3m: share available,0.8527411146613235
+daily_features,beta_d_12m: share available,0.7824446227175053
+daily_features,max_ret_1m: share available,0.8637585561711937
+daily_features,min_ret_1m: share available,0.8637585561711937
+daily_features,skew_d_3m: share available,0.8514132160224508
+daily_features,zero_ret_share_3m: share available,0.8533025500394876
+daily_features,log_amihud_3m: share available,0.8148995384169435
+daily_features,bid_ask_spread: share available,0.8274838005099496
+short_interest,stock-months with short interest,0.4758173147502382
+short_interest,first settlement date,1973-01-15
+announcement_return,earnings releases with a 3-day return,930540
+announcement_return,stock-months with a recent announcement return,0.5878802321098616
+inst_13f,stock-months with 13F holdings,0.7664744894161114
+crsp_target,rows before target filtering,4809102
+crsp_target,valid next-month targets,4766733
+universe_filter,rows before,4766733
+universe_filter,rows failing sharetype in ['NS'],365851
+universe_filter,rows failing securitytype in ['EQTY'],692728
+universe_filter,rows failing securitysubtype in ['COM'],692728
+universe_filter,rows failing usincflg in ['Y'],427970
+universe_filter,"rows failing issuertype in ['ACOR', 'CORP']",105741
+universe_filter,"rows failing primaryexch in ['N', 'A', 'Q']",350414
+universe_filter,rows failing conditionaltype in ['RW'],248
+universe_filter,rows failing tradingstatusflg in ['A'],219
+universe_filter,"rows after (US common stocks, NYSE/AMEX/NASDAQ)",3488879
+crsp_monthly_features,industry_mom_6m: share available,0.9912854530065388
+regime,reg_mkt_ret_1m: first month,1926-07-31
+regime,reg_mkt_ret_12m: first month,1927-06-30
+regime,reg_mkt_ret_24m: first month,1928-06-30
+regime,reg_mkt_vol_1m: first month,1970-01-31
+regime,reg_mkt_vol_ratio: first month,1970-12-31
+regime,reg_umd_ret_12m: first month,1927-12-31
+regime,reg_umd_vol_6m: first month,1970-06-30
+regime,reg_xs_dispersion: first month,1960-01-31
+regime,reg_credit_spread: first month,1919-01-31
+regime,reg_term_spread: first month,1953-04-30
+load_compustat,raw shape (comp.fundq),"(2139515, 64)"
+fundq_extra,items added,"spiq, intanq, mibtq, mibq, sstky, prstkcy, dltisy, dltry, aqcy"
+fundq_extra,filings with at least one extra item,0.787003596609512
+clean_compustat_dates,missing datadate before drop,0
+clean_compustat_dates,filings with a usable rdq,0.6467040427386581
+clean_compustat_dates,median rdq - quarter end (days),38.0
+clean_compustat_filters,rows removed by format filters,0
+filing_dates,Compustat rows matched by period of report,1099206
+filing_dates,Compustat rows matched by first filing after quarter end,0
+filing_dates,matches dropped as implausible,8224
+filing_dates,rows with a filing date (all / since 1996),0.510 / 0.531
+filing_dates,median days quarter end -> 10-Q (Q1-Q3),43.0
+filing_dates,median days quarter end -> 10-K (Q4),86.0
+filing_dates,median days earnings release -> filing,4.0
+filing_dates,share of filings before the release date,0.037451227186910005
+filing_dates,date source since 1996: release+filing,0.5120971394315371
+filing_dates,date source since 1996: deadline,0.2719659312249395
+filing_dates,date source since 1996: release only,0.19737652731095778
+filing_dates,date source since 1996: filing only,0.01856040203256558
+clean_compustat_duplicates,duplicate firm-date rows removed,1600
+load_compustat,clean shape,"(2137915, 76)"
+compustat_features,loaded clean Compustat shape,"(2137915, 76)"
+fundq_extra,sstky: share of cash-flow filings set to 0,0.019152084606980604
+fundq_extra,prstkcy: share of cash-flow filings set to 0,0.054803222526707454
+fundq_extra,dltisy: share of cash-flow filings set to 0,0.03665714761235423
+fundq_extra,dltry: share of cash-flow filings set to 0,0.029961951246842315
+fundq_extra,aqcy: share of cash-flow filings set to 0,0.02717544446513406
+compustat_ytd_to_qtr,YTD variables converted,25
+compustat_quarterly_items,"saley_qtr: share available, YTD-only -> with saleq",0.603 -> 0.811
+compustat_quarterly_items,"cogsy_qtr: share available, YTD-only -> with cogsq",0.581 -> 0.769
+compustat_quarterly_items,"xsgay_qtr: share available, YTD-only -> with xsgaq",0.469 -> 0.606
+compustat_quarterly_items,"oiadpy_qtr: share available, YTD-only -> with oiadpq",0.691 -> 0.767
+compustat_quarterly_items,"oibdpy_qtr: share available, YTD-only -> with oibdpq",0.480 -> 0.683
+compustat_quarterly_items,"niy_qtr: share available, YTD-only -> with niq",0.605 -> 0.812
+compustat_quarterly_items,"xrdy_qtr: share available, YTD-only -> with xrdq",0.203 -> 0.242
+compustat_quarterly_items,"xinty_qtr: share available, YTD-only -> with xintq",0.474 -> 0.637
+compustat_quarterly_items,"dpcy_qtr: share available, YTD-only -> with dpq",0.547 -> 0.713
+compustat_structural_zeros,xrdy: share of sales-reporting filings set to 0,0.7020549800218279
+compustat_structural_zeros,xsgay: share of sales-reporting filings set to 0,0.2535464568852952
+compustat_structural_zeros,xinty: share of sales-reporting filings set to 0,0.2160293282101932
+compustat_structural_zeros,dvy: share of sales-reporting filings set to 0,0.23773390941768843
+compustat_currency,non-USD filings: log levels set to NaN,232785
+balance_sheet,filings with total assets,0.7363253450207328
+balance_sheet,filings with book equity > 0,0.6806673791988924
+compustat_features,number of quarterly flow variables,25
+compustat_features,number of engineered Compustat features,67
+merge_features,Compustat features to merge,67
+ccm_link,stock-months with a valid CCM link,0.9323530566694919
+ccm_link,... since 1980,0.96697162662504
+merge_filing,release-date / filing-date features,25 / 42
+merge_prepare,empty filings dropped (availability_date_is),413266
+merge_filing,stock-months without a gvkey,236012
+staleness_filing_income,matched after staleness filter,2959040
+staleness_filing_income,match rate after filter,0.8481348880256381
+merge_prepare,empty filings dropped (availability_date_cf),393838
+merge_filing_cf,stock-months without a gvkey,236012
+staleness_filing_cashflow,matched after staleness filter,2963880
+staleness_filing_cashflow,match rate after filter,0.8495221531041919
+merge_filing,stock-months whose cash-flow features come from an older filing than their income features,0.17110449331427102
+market_ratios,filing comp_book_to_market: share available,0.7710490962856551
+market_ratios,filing comp_earnings_to_price: share available,0.8189326714970625
+market_ratios,filing comp_sales_to_price: share available,0.7998784136681152
+market_ratios,filing comp_cashflow_to_price: share available,0.510430427653123
+market_ratios,filing comp_rd_to_market: share available,0.8155866110575919
+market_ratios,filing comp_payout_yield: share available,0.5726200306746092
+market_ratios,filing comp_net_payout_yield: share available,0.5694889389973111
+market_ratios,filing comp_ebitda_to_ev: share available,0.6246579488712564
+market_ratios,filing comp_market_leverage: share available,0.7931860061641576
+model_sample,panel shape from 1980-01-31,"(2785393, 163)"
+labels_split,labelled panel shape,"(2785393, 170)"
+feature_selection_returns,candidate / kept / dropped,13 / 13 / 0
+feature_selection_market,candidate / kept / dropped,33 / 33 / 0
+feature_selection_compustat,candidate / kept / dropped,64 / 61 / 3
+feature_selection,dropped,"comp_net_income_total_margin_qtr, comp_xrdy_qtr_yoy_growth, comp_working_capital_change_to_sales_qtr"
+feature_selection,numeric inputs,107
+missing_indicators,inputs with a missing flag,87
+transform,inputs transformed,107
+transform,NaNs left in the inputs,0
+transform,max absolute transformed value,10.0
+industry_encoding,number of train industries,80
+regime,regime inputs,10
+save,model panel shape,"(2785393, 274)"

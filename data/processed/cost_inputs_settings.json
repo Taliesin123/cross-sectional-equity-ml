@@ -1,0 +1,12 @@
+{
+    "first_month": "2003-01-31",
+    "min_quote_days": 5,
+    "min_hl_days": 10,
+    "min_ret_days": 10,
+    "htb_sir_quantile": 0.9,
+    "htb_price": 5.0,
+    "htb_no_si_size_pct": 0.1,
+    "special_io": 0.25,
+    "volume_unit_ratio": 1.0,
+    "short_interest": true
+}

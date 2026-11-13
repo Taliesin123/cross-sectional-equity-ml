@@ -1,0 +1,8 @@
+numpy>=1.24
+pandas>=2.0
+pyarrow>=12.0       # parquet files
+scikit-learn>=1.3   # accuracy / F1 of the classifier
+torch>=2.0          # the MLP
+lightgbm>=4.0       # gradient-boosted trees of the walk-forward ensemble
+matplotlib>=3.7     # figures
+wrds>=3.1           # downloads from WRDS (src/data/)
